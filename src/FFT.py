@@ -144,6 +144,14 @@ def _makeWindow(windowName: str, noSamples: int) -> (np.ndarray, float):
         Outputs:
             windowSig:        Preconfigured scipy.signal
             windowCorrFactor: Correction factor to be applied to the FFT levels
+        Notes:
+            Corrections factors are taken from the Siemens PLM blog [1], but they can also
+            be evaluated using Equation (9.23) of [2], which gives slightly different results.
+            See [3] for a discussion on errata of [2] regarding *power* correction factors 
+        References:
+            [1] https://community.sw.siemens.com/s/article/window-correction-factors
+            [2] Brandt, A., 2011. Noise and vibration analysis: signal analysis and experimental procedures. John Wiley & Sons.
+            [3] https://nl.mathworks.com/matlabcentral/answers/372516-calculate-windowing-correction-factor
     '''
     
     if windowName == 'flattop':  
